@@ -1,6 +1,10 @@
 <html>
 <head>
 	<title></title>
+	<script>
+		var white;
+		var black;
+	</script>
 	<style>
 		.container {
 			width:100%;
@@ -46,7 +50,13 @@
 		.relative:hover div.ab2 {
 			left: 80%;
 		}
-
+		.relative div.ab3 {
+			width:100px;
+			height:100px;
+			position:absolute;
+		    -webkit-transition: left 0.1s; /* Safari */
+		    transition: left 0.1s;
+		}
 	</style>
 </head>
 <body>
@@ -55,6 +65,7 @@
 		<div class="relative">
 			<div id="absolute" class="ab1"></div>
 			<div id="absolute2" class="ab2"></div>
+			<div id="absolute3" class="ab3"><h1>Quit Smoking</h1></div>
 		</div>
 	</div>
 <script>
@@ -65,19 +76,26 @@
 			document.getElementById("absolute").style.left = "0%";
 			document.getElementById("absolute2").style.backgroundColor = "#fff";
 			document.getElementById("absolute2").style.left = "3.7%";
+			document.getElementById("absolute3").style.left = Math.floor((Math.random() * 100) + 1)+"%";
+			document.getElementById("absolute3").style.top = Math.floor((Math.random() * 100) + 1)+"%";
+			document.getElementById("absolute3").style.color = "#001";
 		}
 		else {
 			document.getElementById("absolute").style.backgroundColor = "#fff";
 			document.getElementById("absolute").style.left = "80%";
 			document.getElementById("absolute2").style.backgroundColor = "#000";
 			document.getElementById("absolute2").style.left = "80%";
+			document.getElementById("absolute3").style.color = "#000";
+			document.getElementById("absolute3").style.left = Math.floor((Math.random() * 100) + 1)+"%";
+			document.getElementById("absolute3").style.top = Math.floor((Math.random() * 100) + 1)+"%";
+			
 		}
 	}
 	function changeLocal() {
 		local = !local;
 		changeColor();
 	}
-	setInterval(changeLocal,500)
+	setInterval(changeLocal,300)
 </script>
 </body>
 </html>
