@@ -30,25 +30,36 @@
     var i;
     var defined = [];
 	var LRVal = [];
+	var topVal = [];
 	function changePos() {
 	    for (i = 0; i < x.length; i++) {
-				var topVal = parseInt(x[i].style.top, 10);
+				topVal[i] = parseInt(x[i].style.top, 10);
 				LRVal[i] = parseInt(x[i].style.left, 10);
-				console.log(LRVal[i])
-		        x[i].style.top = (topVal + 2) + "px"; 
-		        if (!defined[i]) {
-		        	console.log("rapido")
-			   		x[i].style.left = Math.floor((Math.random() * 1000) + 2) + "px"; + Math.floor((Math.random() * 1000) + 2) + "px";
-				    defined[i] = true;
-		        }
-		        else {
-		        	console.log(defined[i])
-				    x[i].style.left = LRVal[i] + Math.floor((Math.random() * 15) -10) + "px";
-		        }
-		      
+
+				if ( topVal[i] > 600 ){
+			   		x[i].style.top = 0 + "px";
+				}
+				else if (LRVal[i] < 0) {
+			   		x[i].style.top = 0 + "px";
+			   		x[i].style.left = Math.floor((Math.random() * 1000) + 2) + "px";
+				}
+				else {
+					console.log(LRVal[i])
+			        x[i].style.top = (topVal[i] + 2) + "px"; 
+
+			        if (!defined[i]) {
+			        	console.log("rapido")
+				   		x[i].style.left = Math.floor((Math.random() * 1000) + 2) + "px";
+					    defined[i] = true;
+			        }
+			        else {
+			        	console.log(defined[i])
+					    x[i].style.left = parseFloat(LRVal[i] + Math.floor((Math.random() * 15) -10)) + "px";
+			        }
+				}
 		    }
 		}
 		changePos();
-	setInterval(changePos,200)
+	setInterval(changePos,50)
 </script>
 </html>
