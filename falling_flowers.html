@@ -41,19 +41,16 @@
 				}
 				else if (LRVal[i] < 0) {
 			   		x[i].style.top = 0 + "px";
-			   		x[i].style.left = Math.floor((Math.random() * 1000) + 2) + "px";
+			   		x[i].style.left = Math.floor((Math.random() * 1500) + 2) + "px";
 				}
 				else {
-					console.log(LRVal[i])
 			        x[i].style.top = (topVal[i] + 2) + "px"; 
 
 			        if (!defined[i]) {
-			        	console.log("rapido")
-				   		x[i].style.left = Math.floor((Math.random() * 1000) + 2) + "px";
+				   		x[i].style.left = Math.floor((Math.random() * 1500) + 2) + "px";
 					    defined[i] = true;
 			        }
 			        else {
-			        	console.log(defined[i])
 					    x[i].style.left = parseFloat(LRVal[i] + Math.floor((Math.random() * 15) -10)) + "px";
 			        }
 				}
