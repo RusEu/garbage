@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>falling leaves</title>
+	<style>
+		body {
+			position:relative;
+		}
+		.image {
+			position:absolute;
+			top: 50px;
+			-webkit-transition: left 0.2s; /* Safari */
+			transition: left 0.2s;
+		}
+	</style>
+</head>
+<body>
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+	<img src="http://www.placeflowers.com/50/50" style="top:20px;" class="image">
+</body>
+<script>
+	var x = document.getElementsByClassName("image");
+    var i;
+    var defined = [];
+	var LRVal = [];
+	function changePos() {
+	    for (i = 0; i < x.length; i++) {
+				var topVal = parseInt(x[i].style.top, 10);
+				LRVal[i] = parseInt(x[i].style.left, 10);
+				console.log(LRVal[i])
+		        x[i].style.top = (topVal + 2) + "px"; 
+		        if (!defined[i]) {
+		        	console.log("rapido")
+			   		x[i].style.left = Math.floor((Math.random() * 1000) + 2) + "px"; + Math.floor((Math.random() * 1000) + 2) + "px";
+				    defined[i] = true;
+		        }
+		        else {
+		        	console.log(defined[i])
+				    x[i].style.left = LRVal[i] + Math.floor((Math.random() * 15) -10) + "px";
+		        }
+		      
+		    }
+		}
+		changePos();
+	setInterval(changePos,200)
+</script>
+</html>
